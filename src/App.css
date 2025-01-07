@@ -1,0 +1,118 @@
+.app {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #350957;
+}
+
+.info {
+  color: #350957;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+/* board css */
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-content: center;
+  margin: 20px;
+  max-width: 700px;
+}
+
+/* card css */
+.card {
+  width: 150px;
+  height: 200px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-front {
+  transform: rotateY(180deg);
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-back {
+  background-image: repeating-linear-gradient(#000, #000 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(90deg, #000, #000 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(#8555df 0%, #7a2ab8 0.01%, #350957 100%);
+  transition: transform 0.3s ease, background-image 0.3s ease;
+}
+
+.card-back:hover {
+  transform: scale(1.1);
+  background-image: repeating-linear-gradient(#000000, #000 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(90deg, #000, #000 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(#fff156 0%, #bfbc14 0.01%, #caca17 100%);
+  border-radius: 10px;
+}
+
+/* game info css */
+.game-info {
+  margin: 20px;
+}
+
+.game-info button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #e171bd;
+  border-radius: 7px;
+  background-image: repeating-linear-gradient(#000, #000 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(90deg, #000, #000 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(#8555df 0%, #7a2ab8 0.01%, #350957 100%);
+  transition: transform 0.3s ease;
+}
+
+.game-info button:hover {
+  transform: scale(1.1);
+  color: #ddcef4;
+  background-image: repeating-linear-gradient(
+      #000000,
+      #000 1.5px,
+      transparent 1.5px,
+      transparent 3px
+    ),
+    repeating-linear-gradient(90deg, #000, #000 1.5px, transparent 1.5px, transparent 3px),
+    repeating-linear-gradient(#fff156 0%, #bfbc14 0.1%, #7b7b1b 100%);
+}
